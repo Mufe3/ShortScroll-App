@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - ShortScroll</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#8B5CF6',
+              cyan: '#06B6D4',
+              dark: '#0B0B14',
+              card: '#131322',
+              border: '#27273F',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #0B0B14;
+      color: #F3F4F6;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+  <!-- Header -->
+  <header class="border-b border-brand-border/60 bg-[#10101C]/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="ShortScroll" class="w-8 h-8 rounded-lg">
+        <span class="font-bold text-white group-hover:text-brand-cyan transition-colors">ShortScroll</span>
+      </a>
+      <a href="index.html" class="text-xs text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-4 py-12 flex-grow">
+    <div class="mb-10">
+      <h1 class="text-3xl font-extrabold text-white mb-2">Privacy Policy</h1>
+      <p class="text-xs text-gray-400">Last Updated: October 2026 • Version 1.0.0</p>
+    </div>
+
+    <div class="space-y-8 text-sm text-gray-300 leading-relaxed">
+      
+      <section class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+        <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-brand-purple">1.</span> Data Collection & Processing
+        </h2>
+        <p class="mb-3">
+          ShortScroll is designed from the ground up with <strong>Privacy by Default</strong>. We do not collect, store, transmit, or sell any personal data.
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-gray-400">
+          <li><strong>No Personal Information:</strong> We do not ask for or collect names, email addresses, phone numbers, IP addresses, or device IDs.</li>
+          <li><strong>No Browsing History:</strong> We do not track, record, or monitor your web browsing activity.</li>
+          <li><strong>No Account Access:</strong> We do not read, intercept, or access your social media accounts, login credentials, cookies, or private direct messages.</li>
+        </ul>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+        <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-brand-cyan">2.</span> Permissions & Why They Are Needed
+        </h2>
+        <p class="mb-3">ShortScroll requests strictly the bare minimum permissions necessary to function:</p>
+        <div class="space-y-3 text-gray-400">
+          <div>
+            <span class="font-semibold text-white">Host Permissions (*.tiktok.com, *.instagram.com, *.facebook.com, *.youtube.com):</span>
+            <p>Required exclusively to inject the auto-scroll script on supported short-video feeds. The script detects video completion events and simulates arrow-key down events to advance the feed.</p>
+          </div>
+          <div>
+            <span class="font-semibold text-white">ActiveTab & Scripting:</span>
+            <p>Used solely to check if your active tab is currently on a supported video feed so you can toggle auto-scroll on or off via the popup.</p>
+          </div>
+          <div>
+            <span class="font-semibold text-white">Local Storage:</span>
+            <p>Used exclusively on your local device to remember your interface preferences (such as playback speed and loop count). No data ever leaves your computer.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+        <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-emerald-400">3.</span> Third-Party Services & Telemetry
+        </h2>
+        <p>
+          ShortScroll contains <strong>zero third-party tracking scripts, zero telemetry, and zero advertisements</strong>. All computations and video state checks occur locally in your browser memory or inside the local desktop WebView engine.
+        </p>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+        <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <span class="text-pink-400">4.</span> Contact & Inquiries
+        </h2>
+        <p>
+          If you have questions, concerns, or feedback regarding this Privacy Policy, please open an issue on the official GitHub repository.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border/60 bg-[#08080E] py-8 px-4 text-center text-xs text-gray-500">
+    <p>© 2026 ShortScroll by Mufe3. Built with privacy and simplicity in mind.</p>
+  </footer>
+
+</body>
+</html>
+

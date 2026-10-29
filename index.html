@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortScroll - Hands-Free Auto Scroll for Shorts & Reels</title>
+  <meta name="description" content="Auto-scroll short-form video feeds hands-free on YouTube Shorts, TikTok, Instagram Reels, and Facebook Reels. Available for Windows, Linux, and Chromium browsers.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#8B5CF6',
+              cyan: '#06B6D4',
+              pink: '#EC4899',
+              dark: '#0B0B14',
+              card: '#131322',
+              cardHover: '#1A1A2F',
+              border: '#27273F',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #0B0B14;
+      color: #F3F4F6;
+    }
+    .neon-glow {
+      box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.35);
+    }
+    .glass {
+      background: rgba(19, 19, 34, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #A78BFA 0%, #38BDF8 50%, #F472B6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .border-gradient {
+      border-image: linear-gradient(to right, #8B5CF6, #06B6D4) 1;
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-purple selection:text-white antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Glow Background Accents -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-brand-purple/20 via-brand-cyan/20 to-pink-500/10 blur-[130px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-0 w-[500px] h-[400px] bg-brand-cyan/10 blur-[140px] pointer-events-none -z-10"></div>
+
+  <!-- 1. Header / Navbar -->
+  <header class="sticky top-0 z-50 glass border-b border-brand-border/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <!-- Logo & Name -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="ShortScroll Logo" class="w-9 h-9 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105">
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-bold tracking-tight text-white group-hover:text-brand-cyan transition-colors">ShortScroll</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-brand-purple/20 text-brand-purple border border-brand-purple/30">v1.0.0</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#showcase" class="hover:text-white transition-colors">Showcase</a>
+        <a href="#downloads" class="hover:text-white transition-colors">Downloads</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="#downloads" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-brand-purple to-brand-cyan hover:opacity-95 text-white shadow-md shadow-brand-purple/25 transition-all">
+          Get ShortScroll Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="relative pt-16 pb-20 px-4 sm:px-6 max-w-5xl mx-auto text-center">
+    
+    <!-- Version Tag -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs text-gray-300 mb-8 shadow-inner">
+      <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Official Release v1.0.0 Available Now</span>
+      <span class="text-gray-500">•</span>
+      <span class="text-brand-cyan font-medium">100% Free & Client-Side</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6">
+      Hands-Free Auto-Scroll for <br class="hidden sm:inline">
+      <span class="text-gradient">Shorts & Reels</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Watch short-form feeds without lifting a finger while cooking, working out, or studying. ShortScroll automatically detects video completion and advances to the next reel seamlessly.
+    </p>
+
+    <!-- Supported Platforms Pills -->
+    <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-950/40 border border-red-800/40 text-red-300 text-xs font-medium">
+        <svg class="w-4 h-4 fill-current text-red-500" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube Shorts
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-950/40 border border-cyan-800/40 text-cyan-300 text-xs font-medium">
+        <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pink-950/40 border border-pink-800/40 text-pink-300 text-xs font-medium">
+        <svg class="w-4 h-4 fill-current text-pink-400" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram Reels
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-950/40 border border-blue-800/40 text-blue-300 text-xs font-medium">
+        <svg class="w-4 h-4 fill-current text-blue-400" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook Reels
+      </span>
+    </div>
+
+    <!-- Hero Showcase Image -->
+    <div id="showcase" class="relative max-w-4xl mx-auto rounded-2xl p-2 bg-gradient-to-b from-brand-purple/40 via-brand-cyan/20 to-transparent shadow-2xl neon-glow">
+      <div class="rounded-xl overflow-hidden bg-brand-card border border-brand-border">
+        <!-- Mock Window Header -->
+        <div class="px-4 py-3 bg-[#10101C] border-b border-brand-border/60 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span class="text-xs text-gray-400 font-mono ml-2">ShortScroll Desktop Player</span>
+          </div>
+          <span class="text-xs text-gray-500">YouTube Shorts • TikTok • Instagram • Facebook</span>
+        </div>
+        <!-- Screenshot -->
+        <img src="assets/screenshot1.png" alt="ShortScroll Desktop App Screenshot" class="w-full object-cover max-h-[520px]">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 3. Download Center Section -->
+  <section id="downloads" class="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-brand-border/40">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Download ShortScroll</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+        Get the high-performance desktop player for Windows & Linux, or install the official extension directly from the browser store.
+      </p>
+    </div>
+
+    <!-- Download Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1: Windows -->
+      <div class="rounded-2xl bg-brand-card border-2 border-brand-purple/50 p-7 flex flex-col justify-between hover:border-brand-purple transition-all shadow-xl relative overflow-hidden group">
+        <div class="absolute top-0 right-0 bg-brand-purple text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl shadow-md">
+          Windows
+        </div>
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-brand-purple/20 text-brand-purple flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+            🪟
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Windows (x64)</h3>
+          <p class="text-xs text-gray-400 mb-5 leading-relaxed">
+            Native hardware-accelerated player with floating draggable controls, custom volume sliders, and Always-on-Top multitasking.
+          </p>
+          <ul class="text-xs text-gray-300 space-y-2.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Windows 11 & Windows 10 (64-bit)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Pin window above games & work</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Embedded Edge Chromium engine</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <a href="https://github.com/Mufe3/ShortScroll-App/releases/latest/download/ShortScroll-Windows-x64-Setup.exe" class="w-full py-2.5 px-4 rounded-xl text-center font-semibold text-sm bg-gradient-to-r from-brand-purple to-indigo-600 hover:opacity-95 text-white shadow-lg transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"/><path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"/></svg>
+            Download Setup (.exe)
+          </a>
+          <a href="https://github.com/Mufe3/ShortScroll-App/releases/latest/download/ShortScroll-Windows-x64-Portable.zip" class="w-full py-2 px-4 rounded-xl text-center font-medium text-xs bg-brand-cardHover hover:bg-brand-border text-gray-300 border border-brand-border transition-all flex items-center justify-center gap-1.5">
+            📦 Portable (.zip) — No Install
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Linux -->
+      <div class="rounded-2xl bg-brand-card border-2 border-brand-cyan/40 p-7 flex flex-col justify-between hover:border-brand-cyan transition-all shadow-xl relative overflow-hidden group">
+        <div class="absolute top-0 right-0 bg-brand-cyan text-gray-900 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl shadow-md">
+          Linux
+        </div>
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-cyan-950/40 text-brand-cyan flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+            🐧
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Linux (x64)</h3>
+          <p class="text-xs text-gray-400 mb-5 leading-relaxed">
+            Native GTK & WebKitGTK build featuring a docked control rail, mini player mode, and broad CPU ISA compatibility.
+          </p>
+          <ul class="text-xs text-gray-300 space-y-2.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Ubuntu, Debian, Linux Mint, Pop!_OS</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Fedora, Arch, OpenSUSE & Generic Linux</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Clean side-by-side dock layout</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <a href="https://github.com/Mufe3/ShortScroll-App/releases/latest/download/ShortScroll-Linux-x64.deb" class="w-full py-2.5 px-4 rounded-xl text-center font-semibold text-sm bg-gradient-to-r from-cyan-600 to-teal-600 hover:opacity-95 text-white shadow-lg transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"/><path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"/></svg>
+            Download Ubuntu/Debian (.deb)
+          </a>
+          <a href="https://github.com/Mufe3/ShortScroll-App/releases/latest/download/ShortScroll-Linux-x64.tar.gz" class="w-full py-2 px-4 rounded-xl text-center font-medium text-xs bg-brand-cardHover hover:bg-brand-border text-gray-300 border border-brand-border transition-all flex items-center justify-center gap-1.5">
+            📦 Universal Linux (.tar.gz)
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Official Browser Store -->
+      <div class="rounded-2xl bg-brand-card border-2 border-pink-500/40 p-7 flex flex-col justify-between hover:border-pink-500 transition-all shadow-xl relative overflow-hidden group">
+        <div class="absolute top-0 right-0 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl shadow-md">
+          Official Store
+        </div>
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-pink-950/40 text-pink-400 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+            🧩
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Browser Extension</h3>
+          <p class="text-xs text-gray-400 mb-5 leading-relaxed">
+            Install safely with 1 click directly from the verified browser add-on store. Zero manual file extraction required.
+          </p>
+          <ul class="text-xs text-gray-300 space-y-2.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Microsoft Edge & Google Chrome</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> 1-Click install & auto-updates</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Verified safety & privacy compliance</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <a href="https://microsoftedge.microsoft.com/addons/search/ShortScroll" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl text-center font-semibold text-sm bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 text-white shadow-lg transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12c0 5.302-3.438 9.8-8.207 11.387.202-.544.331-1.121.331-1.727 0-3.314-2.686-6-6-6-1.047 0-2.029.268-2.883.74C5.078 14.896 5 13.473 5 12c0-3.866 3.134-7 7-7 2.128 0 4.032.951 5.316 2.457l-2.094 1.48C14.417 8.163 13.27 7.7 12 7.7c-2.375 0-4.3 1.925-4.3 4.3 0 .762.198 1.478.546 2.1-.082-.008-.164-.016-.246-.016C3.582 14.084 0 17.666 0 22.084c0 .307.025.608.061.905C.021 12.604 0 12.305 0 12z"/></svg>
+            Get on Microsoft Edge
+          </a>
+          <div class="w-full py-2 px-4 rounded-xl text-center font-medium text-xs bg-brand-cardHover text-gray-400 border border-brand-border flex items-center justify-center gap-1.5 cursor-default">
+            Chrome Web Store (Coming Soon)
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. Key Features Grid -->
+  <section id="features" class="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-brand-border/40">
+    <div class="text-center mb-16">
+      <span class="text-brand-purple font-semibold text-xs uppercase tracking-widest">Built for effortless enjoyment</span>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-2 mb-4">Engineered with Smart Controls</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+        More than just scrolling — customize your short-video experience with precision tools.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Feature 1 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-brand-purple/20 text-brand-purple flex items-center justify-center mb-4 text-xl">⚡</div>
+        <h3 class="text-base font-bold text-white mb-2">Automated Video Detection</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Accurately detects when the current video finishes playing and simulates smooth, native scroll gestures to advance to the next reel.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-brand-cyan/20 text-brand-cyan flex items-center justify-center mb-4 text-xl">⏩</div>
+        <h3 class="text-base font-bold text-white mb-2">Custom Playback Speeds</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Breeze through longer reels or tutorials with 1.25x, 1.5x, and 2.0x playback speed toggles accessible right from the settings modal.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-pink-500/20 text-pink-400 flex items-center justify-center mb-4 text-xl">🔁</div>
+        <h3 class="text-base font-bold text-white mb-2">Loop Count Limiter</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Hate missing key moments in quick 5-second videos? Set the loop limit to 2x to let reels replay once before advancing automatically.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-4 text-xl">🌙</div>
+        <h3 class="text-base font-bold text-white mb-2">Sleep Timer (Bedtime Mode)</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Set an automatic shut-off timer (15m, 30m, 60m) so your phone or computer won't keep playing reels all night if you fall asleep.
+        </p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 text-xl">📌</div>
+        <h3 class="text-base font-bold text-white mb-2">Always on Top (Pin Mode)</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Pin the ShortScroll window above your coding IDE, word processor, or web browser to multitask with entertaining content in the corner.
+        </p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-purple/40 transition-all">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4 text-xl">🔒</div>
+        <h3 class="text-base font-bold text-white mb-2">100% Private & Zero-Tracking</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          No external analytics, no telemetry, no cookies captured. All scroll logic executes strictly inside your local machine.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. FAQ Section -->
+  <section id="faq" class="py-20 px-4 sm:px-6 max-w-4xl mx-auto border-t border-brand-border/40">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold tracking-tight mb-2">Frequently Asked Questions</h2>
+      <p class="text-gray-400 text-sm">Everything you need to know about ShortScroll</p>
+    </div>
+
+    <div class="space-y-4">
+      <details class="group p-5 rounded-xl bg-brand-card border border-brand-border">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-white">
+          <span>Is ShortScroll completely free to use?</span>
+          <span class="text-brand-purple transition-transform group-open:rotate-180">▼</span>
+        </summary>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+          Yes! ShortScroll is 100% free with no hidden paywalls, no subscriptions, and no injected advertisements.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-brand-card border border-brand-border">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-white">
+          <span>Do I need to log into my accounts inside ShortScroll?</span>
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-white">
+          <span class="text-brand-purple transition-transform group-open:rotate-180">▼</span>
+        </summary>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+          ShortScroll works without logging in for public feeds. If you prefer to access your personalized recommendations, you can log in through the embedded WebView — your session credentials remain securely saved on your own computer.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-brand-card border border-brand-border">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-white">
+          <span>How do I install the Browser Extension?</span>
+          <span class="text-brand-purple transition-transform group-open:rotate-180">▼</span>
+        </summary>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+          Simply click <strong>Get on Microsoft Edge</strong> to install directly from the official Microsoft Edge Add-ons store with 1 click. Chrome Web Store support will be available soon.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-brand-card border border-brand-border">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-white">
+          <span>How do I install or run ShortScroll on Linux?</span>
+          <span class="text-brand-purple transition-transform group-open:rotate-180">▼</span>
+        </summary>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+          • <strong>Ubuntu / Debian / Mint:</strong> Download <code>ShortScroll-Linux-x64.deb</code> and double-click to install via your software manager, or run <code>sudo dpkg -i ShortScroll-Linux-x64.deb</code>.<br>
+          • <strong>Universal Portable (Arch/Fedora):</strong> Download <code>ShortScroll-Linux-x64.tar.gz</code>, extract it, and run <code>./ShortScroll</code>.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 6. Footer -->
+  <footer class="border-t border-brand-border/60 bg-[#08080E] py-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="ShortScroll Logo" class="w-7 h-7 rounded-lg">
+        <span class="font-bold text-white text-sm">ShortScroll</span>
+        <span class="text-xs text-gray-500">© 2026 Mufe3. All Rights Reserved.</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-gray-400">
+        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="https://github.com/Mufe3/ShortScroll" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub Repository</a>
+        <a href="https://github.com/Mufe3/ShortScroll-App/releases" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Releases</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
+
